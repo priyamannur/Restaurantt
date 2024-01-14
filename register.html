@@ -35,27 +35,27 @@
             <h2>Register</h2>
             <div class ="uname">
                 <label class="form-label">Enter your full name</label>
-                <input class="form-control" type="text" placeholder="Full Name" id="name" name="user_name"></input>
+                <input class="form-control" type="text" placeholder="Full Name" id="name" name="user_name" required></input>
             </div>
             <div class ="upass">
                 <label class="form-label">Password</label>
-                <input class="form-control" type="password"  id="pass" name="user_pass"></input>
+                <input class="form-control" type="password"  id="pass" name="user_pass" required></input>
             </div>
             <div class ="ucpass">
                 <label class="form-label">Confirmation Password</label>
-                <input class="form-control" type="password"  id="cpass" name="cuser_pass"></input>
+                <input class="form-control" type="password"  id="cpass" name="cuser_pass" required></input>
             </div>
             <div class ="uph">
                 <label class="form-label">phone-no</label>
-                <input class="form-control" type="text" placeholder="phone-no" id="phno" name="user_phno"></input>
+                <input class="form-control" type="text" placeholder="phone-no" id="phno" name="user_phno" required></input>
             </div>
             <div class ="umail">
                 <label class="form-label">E-mail</label>
-                <input class="form-control" type="email" placeholder="ex: xyz@gmail.com" id="email" name="user_mail"></input>
+                <input class="form-control" type="email" placeholder="ex: xyz@gmail.com" id="email" name="user_mail" required></input>
             </div>
             <div class ="uadd">
                 <label class="form-label">Address</label>
-                <input class="form-control" type="text" placeholder="Full Address" id="address" name="user_add"></input>
+                <input class="form-control" type="text" placeholder="Full Address" id="address" name="user_add" required></input>
             </div>
             <div class="submit-btn">
                 <button type="submit" class="btn btn-dark" value="submit" >submit</button>
@@ -64,7 +64,12 @@
     </div>
     <script>
         function Validate(){
-            
+            var pass = documnet.getElementById('user_pass').value;
+            var pass2 = document.getElementById('cuser_pass').value;
+            if(pass!=pass2){
+                alert("passwords do not match, please re-enter!");
+                return false;
+            }
         }
     </script>
     </body>

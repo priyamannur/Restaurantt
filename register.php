@@ -24,7 +24,7 @@
         
         if($result!=false){
         if(mysqli_num_rows($result)==1){
-            echo("USN already exists");
+            echo("Phone Number already exists");
             return;
         }
         else{
@@ -32,6 +32,7 @@
             $add = $_POST['user_add'];
             $email = $_POST['user_mail'];
             $pass = $_POST['user_pass'];
+            $new_pass = sha1($pass);
             $query1 = "INSERT INTO signin VALUES('$userName','$phno','$email','$add','$pass')";
             if(mysqli_query($con, $query1)){
                 $_SESSION['success'] = 'Registered Successfully!!';

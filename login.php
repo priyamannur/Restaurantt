@@ -7,7 +7,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
     $phno = $_POST['phno'];
     $pass = $_POST['pass'];
-
+    $hashedPass = sha1($pass);
     $host ="localhost";
     $dbusername = "root";
     $dbpass = "";
@@ -42,7 +42,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     if($result->num_rows==1){
         $row = $result->fetch_assoc();
         $dbuserpass = $row['pass'];
-        if($dbuserpass==$pass){
+        $pass1 = sha1($dbuserpass);
+        if($hashedPass==$pass1){
             $_SESSION['phoneNo'] = $phno;
             header('location:menu.php');
         }
